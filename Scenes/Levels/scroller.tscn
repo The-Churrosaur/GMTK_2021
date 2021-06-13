@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Source/scroller.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Environment/grab_area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Source/screen_bottom.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Character/camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Character/controller.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Rope/Parts/Rope.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Character/climber.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/red_spriteframes.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://Resources/blue_spriteframes.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Scenes/Environment/walk_surface.tscn" type="PackedScene" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1000, 10 )
+
+[node name="ScrollerScene" type="Node2D"]
+script = ExtResource( 1 )
+max_x = 100
+max_y = 500
+y_limit = 600
+camera_path = NodePath("Camera")
+climber1_path = NodePath("Climber")
+climber2_path = NodePath("Climber2")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 14.0
+text = "adsfdasf"
+
+[node name="FloorArea" type="Area2D" parent="."]
+position = Vector2( 520.588, 580.655 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="FloorArea"]
+scale = Vector2( 20, 1 )
+texture = ExtResource( 11 )
+
+[node name="Climber" parent="." instance=ExtResource( 7 )]
+collision_layer = 2
+collision_mask = 1
+other_climber_path = NodePath("../Climber2")
+rope_path = NodePath("../Rope")
+spriteframes = ExtResource( 9 )
+
+[node name="Climber2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 150, 0 )
+collision_layer = 4
+collision_mask = 1
+other_climber_path = NodePath("../Climber")
+rope_path = NodePath("../Rope")
+spriteframes = ExtResource( 8 )
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]
+climber1_path = NodePath("../Climber")
+climber2_path = NodePath("../Climber2")
+
+[node name="Rope" parent="." instance=ExtResource( 6 )]
+
+[node name="Controller" parent="." instance=ExtResource( 5 )]
+climber1_path = NodePath("../Climber")
+climber2_path = NodePath("../Climber2")
+rope_path = NodePath("../Rope")
+
+[node name="WalkSurface" parent="." instance=ExtResource( 10 )]
+position = Vector2( 74.0825, 41.1291 )
+
+[node name="GrabArea" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72.2284, -95.0213 )
+scale = Vector2( 4, 4 )

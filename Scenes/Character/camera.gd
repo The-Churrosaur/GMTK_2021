@@ -16,4 +16,5 @@ func _physics_process(delta):
 	var atob = climber2.global_position - climber1.global_position
 	global_position = climber1.global_position + atob / 2
 	
-	sprite.position = lerp(sprite.position, position, .5)
+#	sprite.position = lerp(sprite.position, position, .5)
+#TODO
