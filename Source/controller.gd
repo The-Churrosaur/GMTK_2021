@@ -11,6 +11,8 @@ onready var climber1 = get_node(climber1_path)
 onready var climber2 = get_node(climber2_path)
 onready var rope = get_node(rope_path)
 
+var rope_light = false
+
 func _ready():
 	rope.call_deferred("spawn_rope",climber1.global_position, climber2.global_position )
 	rope.call_deferred("connect_to_objects",climber1, climber2)
@@ -82,3 +84,5 @@ func _physics_process(delta):
 		climber2_move_vector += Vector2.DOWN
 	
 	climber2.set_move(climber2_move_vector)
+	
+	

@@ -105,6 +105,10 @@ func change_elasticity(new_softness:int):
 	for i in rope_parts:
 		joint = i.get_node("Collision/Joint") as PinJoint2D
 		joint.softness = new_softness
+		
+
+
+
 
 func _draw():
 	draw_polyline(rope_points, rope_color)
