@@ -4,7 +4,7 @@ extends RigidBody2D
 enum {FALLING,GRABBING,WALKING}
 
 export var walk_impuse : float = 3000
-export var jump_impulse : float = 20000
+export var jump_impulse : float = 40000
 export var swing_impulse : float = 300
 export var swing_out : float = -300 # false centrifugal force outwards
 export var climb_speed : float = 100

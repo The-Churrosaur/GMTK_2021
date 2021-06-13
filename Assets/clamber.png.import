@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iceclamber.png-8da327028b1ae7d3f05f3e1deac0c3a2.stex"
+path="res://.import/clamber.png-b27c2f4e183817031570656c1cce480d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/iceclamber.png"
-dest_files=[ "res://.import/iceclamber.png-8da327028b1ae7d3f05f3e1deac0c3a2.stex" ]
+source_file="res://Assets/clamber.png"
+dest_files=[ "res://.import/clamber.png-b27c2f4e183817031570656c1cce480d.stex" ]
 
 [params]
 

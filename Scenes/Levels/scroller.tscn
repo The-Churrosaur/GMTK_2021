@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Source/scroller.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Environment/grab_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Source/screen_bottom.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Character/character_base.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Environment/endgame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Environment/walk_surface.tscn" type="PackedScene" id=10]
 [ext_resource path="res://icon.png" type="Texture" id=11]
 
@@ -63,6 +64,13 @@ margin_bottom = 53.0
 custom_fonts/font = SubResource( 3 )
 text = "test
 "
+
+[node name="EndContainer" parent="CanvasLayer/UI/MarginContainer" instance=ExtResource( 5 )]
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
 
 [node name="FloorArea" type="Area2D" parent="."]
 position = Vector2( 520.588, 580.655 )

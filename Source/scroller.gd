@@ -19,6 +19,7 @@ export var climber1_path : NodePath
 export var climber2_path : NodePath
 
 onready var score_label = $CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreLabel
+onready var end_container = $CanvasLayer/UI/MarginContainer/EndContainer
 onready var timer = $SpawnTimer
 onready var floor_area = $FloorArea
 onready var camera = get_node(camera_path)
@@ -39,6 +40,7 @@ func _ready():
 	
 #	timer.connect("timeout", self, "spawn_platform")
 	floor_area.connect("grab_area_entered", self, "on_area_exited")
+	floor_area.connect("climber_entered", self, "on_player_bottomed")
 	
 	spawn_platform()
 	spawn_platform()
@@ -49,7 +51,7 @@ func _ready():
 
 func _physics_process(delta):
 	floor_area.position.y -= scroll_speed * delta
-	floor_area.position.x = camera.position.x
+	floor_area.position.x = lerp(floor_area.position.x, camera.position.x, 0.2)
 	
 #	score += 1 * delta
 	score_label.text = "Score: " + String(int(score)) + " Speed: " + String(int(scroll_speed))
@@ -88,3 +90,7 @@ func spawn_platform():
 	
 	scroll_elements[platform.name] = platform
 	
+func on_player_bottomed():
+	yield(get_tree().create_timer(0.5),"timeout")
+#	get_tree().paused = true
+	end_container.activate(score)
