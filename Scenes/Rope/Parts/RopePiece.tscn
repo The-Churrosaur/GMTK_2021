@@ -20,5 +20,4 @@ shape = SubResource( 1 )
 
 [node name="Joint" type="PinJoint2D" parent="Collision"]
 position = Vector2( 0, 5 )
-bias = 0.2
 softness = 0.01

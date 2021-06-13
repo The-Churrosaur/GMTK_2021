@@ -24,7 +24,7 @@ position = Vector2( 383.741, 59.0733 )
 collision_layer = 2048
 
 [node name="ClimbArea" parent="." instance=ExtResource( 1 )]
-position = Vector2( 463.832, 225.526 )
+position = Vector2( 674.736, 210.843 )
 
 [node name="WalkSurface" parent="." instance=ExtResource( 4 )]
 position = Vector2( 331.894, 100.753 )

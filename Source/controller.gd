@@ -20,6 +20,7 @@ func _input(event):
 	if event.is_action_pressed("ui_end"):
 		rope.spawn_rope(climber1.global_position, climber2.global_position)
 		rope.connect_to_objects(climber1, climber2)
+#		rope.change_elasticity(0.001)
 	
 	# grabbing
 	if event.is_action_pressed("ui_accept"):

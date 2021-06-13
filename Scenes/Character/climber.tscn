@@ -10,11 +10,12 @@
 "Climber",
 ]]
 mode = 2
-mass = 100.0
+mass = 20.0
 contacts_reported = 1
 contact_monitor = true
 linear_damp = 10.0
 script = ExtResource( 1 )
+walk_impuse = 100000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

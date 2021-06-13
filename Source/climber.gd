@@ -1,7 +1,7 @@
 class_name Climber
 extends RigidBody2D
 
-export var walk_impuse : float = 1000
+export var walk_impuse : float = 1000000
 export var jump_impulse : float = 20000
 export var climb_speed : float = 100
 
@@ -74,8 +74,9 @@ func on_body_exited(body):
 		in_grabbable_area = false
 	
 	# fall off platform
-	if movement == WALKING:
-		movement = FALLING
+	if body.is_in_group("WalkSurface"):
+		if movement == WALKING:
+			set_falling()
 
 
 # SET MOVEMENT MODES ==========
