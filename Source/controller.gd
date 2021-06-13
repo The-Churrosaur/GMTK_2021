@@ -53,6 +53,10 @@ func _input(event):
 #		climber1.set_move(Vector2.DOWN)
 #	if Input.is_action_just_released("ui_down"):
 #		climber1.set_move(Vector2.UP)
+	
+	# return
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://Scenes/Levels/main_menu.tscn")
 
 func _physics_process(delta):
 	

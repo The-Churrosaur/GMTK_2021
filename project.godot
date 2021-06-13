@@ -42,6 +42,10 @@ config/name="GMTK Project 2021"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicSingleton="*res://Scenes/Environment/music_singleton.tscn"
+
 [input]
 
 ui_accept={

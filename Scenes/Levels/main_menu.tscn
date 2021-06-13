@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Source/StartGame.gd" type="Script" id=1]
 [ext_resource path="res://Source/QuitButton.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/cavern-background-blue-free-vector.jpg" type="Texture" id=4]
 [ext_resource path="res://Source/main_menu.gd" type="Script" id=5]
 [ext_resource path="res://Source/StartButton2.gd" type="Script" id=6]
+[ext_resource path="res://Assets/snowflake.png" type="Texture" id=7]
 
 [sub_resource type="StreamTexture" id=3]
 flags = 4
@@ -19,9 +20,21 @@ size = 35
 outline_size = 1
 font_data = SubResource( 1 )
 
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 450, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( -1, 9.8, 0 )
+initial_velocity = 130.77
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
 [node name="Node" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 477.464, 127.732 )
 custom_constants/margin_right = 0
 custom_constants/margin_top = 10
 custom_constants/margin_bottom = 10
@@ -99,3 +112,11 @@ position = Vector2( 511.446, 319.692 )
 scale = Vector2( 0.760506, 0.760506 )
 z_index = -17
 texture = ExtResource( 4 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -89.7205, 201.206 )
+amount = 100
+lifetime = 10.0
+preprocess = 10.0
+process_material = SubResource( 4 )
+texture = ExtResource( 7 )

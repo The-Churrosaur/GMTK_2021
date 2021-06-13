@@ -6,3 +6,6 @@ func _ready():
 #	get_tree().change_scene("res://Scenes/Rope/Parts/Teststage.tscn")
 	get_tree().change_scene("res://Scenes/Levels/scroller.tscn")
 	get_tree().change_scene("res://Scenes/Levels/main_menu.tscn")
+	
+	var music = get_node("/root/MusicSingleton")
+	music.play()

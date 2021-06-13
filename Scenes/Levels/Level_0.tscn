@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Character/character_base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Environment/grab_area_no_tiles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Source/level_changer.gd" type="Script" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -49,11 +50,11 @@ position = Vector2( 1889.87, 62.7341 )
 scale = Vector2( 4.309, 1 )
 
 [node name="Swinging" type="Label" parent="."]
-margin_left = 989.0
+margin_left = 962.0
 margin_top = 31.0
-margin_right = 1509.0
+margin_right = 1545.0
 margin_bottom = 50.0
-text = "While one character is climbing, the other can swing using directional controls"
+text = "While one character is climbing, the other can swing using directional controls (WASD, IJKL)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,17 +74,37 @@ __meta__ = {
 }
 
 [node name="Launching" type="Label" parent="."]
-margin_left = 1793.25
-margin_top = -177.273
-margin_right = 2311.25
-margin_bottom = -112.273
-text = "While both characters are climbing the rope can be streatched more than normal
+margin_left = 1796.82
+margin_top = -195.982
+margin_right = 2314.82
+margin_bottom = -113.982
+text = "While both characters are climbing the rope can be stretched more than normal
 
-move the climbing characters away from eachother untill rope turns orange,
-release with one character to launch, 
-release with the other shortly after to continue your flight"
+move the climbing characters away from each other until the rope turns orange.
+Release with one character to launch, 
+Release with the other shortly after to continue your flight!
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="."]
+margin_left = 2457.46
+margin_top = -71.9187
+margin_right = 2675.46
+margin_bottom = -51.9187
+text = "Click here to return to the menu"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://Scenes/main_menu.tsch"
+
+[node name="Label" type="Label" parent="Button"]
+margin_left = -56.7307
+margin_top = -42.0475
+margin_right = 303.269
+margin_bottom = -28.0475
+text = "(you can also hit escape to return to the menu any time)"
 
 [editable path="Node2D"]
