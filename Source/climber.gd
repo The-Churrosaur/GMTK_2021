@@ -1,6 +1,8 @@
 class_name Climber
 extends RigidBody2D
 
+enum {FALLING,GRABBING,WALKING}
+
 export var walk_impuse : float = 4000000
 export var jump_impulse : float = 20000
 export var swing_impulse : float = 200
@@ -12,14 +14,17 @@ export var walking_weight = 1
 export var falling_weight = .5
 export var launch_distance = 175
 export var launch_impulse = 100000
-export var other_climber_path : NodePath
-
 
 export var walking_damp : float = 6
 export var falling_damp : float = 0.1
 
+export var other_climber_path : NodePath
+export var rope_path : NodePath
+
+export var spriteframes : SpriteFrames
 
 onready var other_climber = get_node(other_climber_path)
+onready var rope = get_node(rope_path)
 onready var kinematic_anchor = $KinematicAnchor
 onready var joint = $KinematicAnchor/PinJoint2D
 onready var rope_joint = $RopePin
@@ -33,7 +38,6 @@ var on_surface : bool = false
 var queue_launch = false
 
 # current movement type
-enum {FALLING,GRABBING,WALKING}
 var movement = FALLING
 
 # flags
@@ -54,6 +58,8 @@ func _ready():
 	connect("body_exited", self, "on_body_exited")
 	
 	set_falling()
+	
+	$AnimatedSprite.frames = spriteframes
 
 func _physics_process(delta):
 	
@@ -67,7 +73,12 @@ func _physics_process(delta):
 	if queue_launch:
 		apply_central_impulse((other_climber.global_position - global_position).normalized() * launch_impulse * delta)
 		queue_launch = false
-		
+	
+	# update rope color
+	if should_yeet():
+		rope.rope_color = Color.coral
+	else:
+		rope.rope_color = Color.black
 
 func on_body_entered(body):
 	
@@ -97,6 +108,11 @@ func on_body_exited(body):
 		if movement == WALKING:
 			set_falling()
 
+func should_yeet() -> bool:
+	if (global_position - other_climber.global_position).length() > launch_distance:
+		return true
+	else: 
+		return false
 
 # SET MOVEMENT MODES ==========
 
@@ -117,10 +133,10 @@ func try_set_grabbing():
 		
 		movement = GRABBING
 		anchor_kinematic()
+
 func release_grab():
-	if (global_position - other_climber.global_position).length() > launch_distance:
+	if should_yeet():
 		queue_launch = true
-		
 	if on_surface:
 		set_walking()
 	else:

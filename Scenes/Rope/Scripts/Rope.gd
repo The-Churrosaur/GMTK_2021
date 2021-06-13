@@ -3,6 +3,8 @@ extends CanvasItem
 #export var start_pin_path : NodePath
 #export var end_pin_path : NodePath
 
+export var rope_color = Color.black
+
 var RopePiece = preload("res://Scenes/Rope/Parts/RopePiece.tscn")
 var piece_length := 6.0
 var rope_parts := []
@@ -105,4 +107,4 @@ func change_elasticity(new_softness:int):
 		joint.softness = new_softness
 
 func _draw():
-	draw_polyline(rope_points, Color.black)
+	draw_polyline(rope_points, rope_color)

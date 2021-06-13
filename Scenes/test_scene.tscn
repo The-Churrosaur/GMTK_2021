@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Environment/grab_area.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Character/climber.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Environment/walk_surface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Rope/Parts/Rope.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/blue_spriteframes.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://Resources/red_spriteframes.tres" type="SpriteFrames" id=7]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 1.33484, 0.667419 )
@@ -21,6 +23,8 @@ collision_mask = 1
 mass = 0.5
 gravity_scale = 2.0
 other_climber_path = NodePath("../Climber2")
+rope_path = NodePath("../Rope")
+spriteframes = ExtResource( 6 )
 
 [node name="Climber2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 428.471, 196.949 )
@@ -29,6 +33,8 @@ collision_mask = 1
 mass = 0.5
 gravity_scale = 2.0
 other_climber_path = NodePath("../Climber1")
+rope_path = NodePath("../Rope")
+spriteframes = ExtResource( 7 )
 
 [node name="WalkSurface" parent="." instance=ExtResource( 4 )]
 position = Vector2( 373.844, 249.854 )
