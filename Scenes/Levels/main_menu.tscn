@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Source/StartGame.gd" type="Script" id=1]
+[ext_resource path="res://Source/QuitButton.gd" type="Script" id=2]
+[ext_resource path="res://Assets/iceclamber.png" type="Texture" id=3]
+[ext_resource path="res://Assets/ice.jpg" type="Texture" id=4]
+[ext_resource path="res://Source/main_menu.gd" type="Script" id=5]
+[ext_resource path="res://Source/StartButton2.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Candara.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 1
+font_data = SubResource( 1 )
+
+[node name="Node" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 0
+custom_constants/margin_bottom = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 682.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 297.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CenterContainer2"]
+margin_left = 72.0
+margin_right = 952.0
+margin_bottom = 297.0
+texture = ExtResource( 3 )
+
+[node name="CenterContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 301.0
+margin_right = 1024.0
+margin_bottom = 682.0
+custom_constants/margin_right = 350
+custom_constants/margin_top = 60
+custom_constants/margin_left = 350
+custom_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 350.0
+margin_top = 60.0
+margin_right = 674.0
+margin_bottom = 281.0
+custom_constants/separation = 40
+
+[node name="StartButton" type="Button" parent="VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 324.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 2 )
+text = "Tutorial"
+script = ExtResource( 1 )
+
+[node name="StartButton2" type="Button" parent="VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 87.0
+margin_right = 324.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 2 )
+text = "Endless"
+script = ExtResource( 6 )
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 174.0
+margin_right = 324.0
+margin_bottom = 221.0
+custom_fonts/font = SubResource( 2 )
+text = "Quit Game"
+script = ExtResource( 2 )
+
+[node name="ice" type="Sprite" parent="."]
+position = Vector2( 524.794, 297 )
+scale = Vector2( 2, 2 )
+z_index = -17
+texture = ExtResource( 4 )

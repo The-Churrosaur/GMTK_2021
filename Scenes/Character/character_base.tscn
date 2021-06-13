@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Tilemapsmall.png" type="Texture" id=1]
 [ext_resource path="res://Assets/cavern-background-blue-free-vector.jpg" type="Texture" id=2]
@@ -269,42 +269,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 11/z_index = 0
 
+[sub_resource type="PhysicsMaterial" id=12]
+
 [node name="Node2D" type="Node2D"]
-
-[node name="Controller" parent="." instance=ExtResource( 6 )]
-climber1_path = NodePath("../Climber1")
-climber2_path = NodePath("../Climber2")
-rope_path = NodePath("../Rope")
-
-[node name="Climber1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 219.015, 190.842 )
-collision_layer = 2
-collision_mask = 1
-mass = 0.5
-gravity_scale = 2.0
-walk_impuse = 3000.0
-other_climber_path = NodePath("../Climber2")
-rope_path = NodePath("../Rope")
-spriteframes = ExtResource( 8 )
-
-[node name="AnimatedSprite" parent="Climber1" index="3"]
-frame = 1
-
-[node name="Climber2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 319.015, 190.275 )
-collision_layer = 4
-collision_mask = 1
-mass = 0.5
-gravity_scale = 2.0
-other_climber_path = NodePath("../Climber1")
-rope_path = NodePath("../Rope")
-spriteframes = ExtResource( 9 )
-
-[node name="AnimatedSprite" parent="Climber2" index="3"]
-frame = 1
-
-[node name="Rope" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0.305237, -1.04785 )
 
 [node name="TileMap" type="TileMap" parent="." groups=[
 "WalkSurface",
@@ -323,10 +290,31 @@ z_index = -1
 z_as_relative = false
 texture = ExtResource( 2 )
 
+[node name="Climber" parent="." instance=ExtResource( 7 )]
+collision_layer = 2
+collision_mask = 1
+physics_material_override = SubResource( 12 )
+other_climber_path = NodePath("../Climber2")
+rope_path = NodePath("../Rope")
+spriteframes = ExtResource( 8 )
+
+[node name="Climber2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 150, 0 )
+collision_layer = 4
+collision_mask = 1
+physics_material_override = SubResource( 12 )
+other_climber_path = NodePath("../Climber")
+rope_path = NodePath("../Rope")
+spriteframes = ExtResource( 9 )
+
 [node name="Camera" parent="." instance=ExtResource( 5 )]
-climber1_path = NodePath("../Climber1")
-climber2_path = NodePath("../Climber1")
+climber1_path = NodePath("../Climber")
+climber2_path = NodePath("../Climber2")
 sprite_path = NodePath("../Sprite")
 
-[editable path="Climber1"]
-[editable path="Climber2"]
+[node name="Rope" parent="." instance=ExtResource( 3 )]
+
+[node name="Controller" parent="." instance=ExtResource( 6 )]
+climber1_path = NodePath("../Climber")
+climber2_path = NodePath("../Climber2")
+rope_path = NodePath("../Rope")

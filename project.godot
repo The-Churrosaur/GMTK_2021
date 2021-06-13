@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Controller",
 "language": "GDScript",
 "path": "res://Source/controller.gd"
+}, {
+"base": "Node2D",
+"class": "scroller",
+"language": "GDScript",
+"path": "res://Source/scroller.gd"
 } ]
 _global_script_class_icons={
 "ClimbArea": "",
 "Climber": "",
-"Controller": ""
+"Controller": "",
+"scroller": ""
 }
 
 [application]

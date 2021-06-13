@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Source/scroller.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Environment/grab_area.tscn" type="PackedScene" id=2]
@@ -12,13 +12,22 @@
 [ext_resource path="res://Scenes/Environment/walk_surface.tscn" type="PackedScene" id=10]
 [ext_resource path="res://icon.png" type="Texture" id=11]
 
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Assets/Candara.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 1
+font_data = SubResource( 2 )
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1000, 10 )
 
 [node name="ScrollerScene" type="Node2D"]
 script = ExtResource( 1 )
-max_x = 100
+max_x = 50
 max_y = 500
+x_limit = 100
 y_limit = 600
 camera_path = NodePath("Camera")
 climber1_path = NodePath("Climber")
@@ -55,8 +64,10 @@ margin_bottom = 580.0
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
 margin_right = 984.0
-margin_bottom = 14.0
-text = "adsfdasf"
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 3 )
+text = "test
+"
 
 [node name="FloorArea" type="Area2D" parent="."]
 position = Vector2( 520.588, 580.655 )
@@ -96,8 +107,14 @@ climber2_path = NodePath("../Climber2")
 rope_path = NodePath("../Rope")
 
 [node name="WalkSurface" parent="." instance=ExtResource( 10 )]
-position = Vector2( 74.0825, 41.1291 )
+position = Vector2( 74.0825, 188.286 )
 
 [node name="GrabArea" parent="." instance=ExtResource( 2 )]
-position = Vector2( 72.2284, -95.0213 )
+position = Vector2( 73.0693, 52.1354 )
 scale = Vector2( 4, 4 )
+
+[node name="GrabArea2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -276.71 )
+
+[node name="GrabArea3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 180.109, -202.547 )

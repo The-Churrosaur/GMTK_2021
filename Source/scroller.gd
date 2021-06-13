@@ -1,3 +1,4 @@
+class_name scroller
 extends Node2D
 
 export var starting_scroll_speed : float = 1
@@ -41,6 +42,7 @@ func _ready():
 	
 	spawn_platform()
 	spawn_platform()
+	spawn_platform()
 	
 	climber1.try_set_grabbing()
 	climber2.try_set_grabbing()
@@ -50,7 +52,7 @@ func _physics_process(delta):
 	floor_area.position.x = camera.position.x
 	
 #	score += 1 * delta
-	score_label.text = "Score: " + String(int(score)) + ", speed: " + String(scroll_speed)
+	score_label.text = "Score: " + String(int(score)) + " Speed: " + String(int(scroll_speed))
 	
 	scroll_speed += scroll_delta * delta
 	

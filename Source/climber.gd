@@ -5,7 +5,7 @@ enum {FALLING,GRABBING,WALKING}
 
 export var walk_impuse : float = 3000
 export var jump_impulse : float = 20000
-export var swing_impulse : float = 200
+export var swing_impulse : float = 300
 export var swing_out : float = -300 # false centrifugal force outwards
 export var climb_speed : float = 100
 export var parter_slow_factor = 2
@@ -13,7 +13,7 @@ export var partner_max_distance = 200
 export var walking_weight = 1
 export var falling_weight = .5
 export var launch_distance = 175
-export var launch_impulse = 70000
+export var launch_impulse = 100000
 
 export var walking_damp : float = 10
 export var falling_damp : float = 0.1
