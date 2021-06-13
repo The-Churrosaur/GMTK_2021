@@ -43,8 +43,8 @@ position = Vector2( 373.844, 249.854 )
 position = Vector2( 0.305237, -1.04785 )
 
 [node name="ClimbArea2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 484.008, 375.612 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 213.239, 375.612 )
+scale = Vector2( 1, 0.25 )
 
 [node name="ClimbArea3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 476.448, 221.902 )

@@ -13,7 +13,7 @@ export var partner_max_distance = 200
 export var walking_weight = 1
 export var falling_weight = .5
 export var launch_distance = 175
-export var launch_impulse = 100000
+export var launch_impulse = 70000
 
 export var walking_damp : float = 6
 export var falling_damp : float = 0.1
@@ -195,15 +195,23 @@ func move(delta):
 	if movement == GRABBING:
 		# move anchor
 		# calculates maximum rope distance
-		var distance_to_other = (self.position - other_climber.position).length()
-		var target_position_distance_to_other = ((move_vector.normalized() * climb_speed * delta  + global_position) - other_climber.position).length()
-		var slow_factor = distance_to_other -  partner_max_distance * 2
+		var vector_to_other = global_position - other_climber.global_position
+		var distance_to_other = global_position.distance_to(other_climber.position)
+		var target_move_vector = move_vector.normalized() * climb_speed * delta
+		var target_position = target_move_vector + global_position
+		var target_position_distance_to_other = target_position.distance_to(other_climber.global_position)
+		
 		if(distance_to_other < partner_max_distance):
-			kinematic_anchor.move_and_collide((move_vector.normalized() * climb_speed * delta )) 
+			kinematic_anchor.move_and_collide(target_move_vector) 
 		elif (target_position_distance_to_other < distance_to_other):
-			kinematic_anchor.move_and_collide((move_vector.normalized() * climb_speed * delta ))
+			kinematic_anchor.move_and_collide(target_move_vector)
 		else:
-			pass
+			
+			var adjusted_target_move_vector = target_move_vector.reflect(vector_to_other.tangent().normalized())
+			print(adjusted_target_move_vector, target_move_vector, vector_to_other)
+			kinematic_anchor.move_and_collide(adjusted_target_move_vector)
+			
+			
 			#provide feedback that movement is blocked PROJECT MOVE VECTOR TO AN APROPRIATE RANGE
 	
 	# swing 
