@@ -17,11 +17,11 @@ position = Vector2( 75.4718, 238.29 )
 position = Vector2( 225.472, 238.29 )
 
 [node name="GrabArea4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2112.84, 305.47 )
+position = Vector2( 2110.17, 306.471 )
 scale = Vector2( 1, 9.087 )
 
 [node name="GrabArea5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2049.67, 3.25723 )
+position = Vector2( 2048.67, 0.587555 )
 scale = Vector2( 1, 3.121 )
 
 [node name="GrabArea6" parent="." instance=ExtResource( 2 )]
@@ -45,7 +45,7 @@ position = Vector2( 1663.11, 62.2957 )
 scale = Vector2( 1, 3.126 )
 
 [node name="GrabArea8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1885.86, 66.0712 )
+position = Vector2( 1889.87, 62.7341 )
 scale = Vector2( 4.309, 1 )
 
 [node name="Swinging" type="Label" parent="."]

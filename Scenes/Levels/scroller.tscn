@@ -84,7 +84,7 @@ scale = Vector2( 20, 1 )
 texture = ExtResource( 11 )
 
 [node name="WalkSurface" parent="." instance=ExtResource( 10 )]
-position = Vector2( 74.0825, 188.286 )
+position = Vector2( 64.183, 169.726 )
 
 [node name="GrabArea" parent="." instance=ExtResource( 2 )]
 position = Vector2( 73.0693, 52.1354 )
@@ -97,5 +97,8 @@ position = Vector2( 0, -276.71 )
 position = Vector2( 180.109, -202.547 )
 
 [node name="Node2D" parent="." instance=ExtResource( 4 )]
+
+[node name="TileMap" parent="Node2D" index="0"]
+tile_data = PoolIntArray( 393215, 6, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 3, 0 )
 
 [editable path="Node2D"]

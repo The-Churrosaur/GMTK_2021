@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tilemapsmall.png-080bd32f89498a1e969d062f28b6bcea.stex"
+path="res://.import/block1.png-a4b1e5e116eb4ab4cdd50dc13333bee0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemapsmall.png"
-dest_files=[ "res://.import/Tilemapsmall.png-080bd32f89498a1e969d062f28b6bcea.stex" ]
+source_file="res://Assets/block1.png"
+dest_files=[ "res://.import/block1.png-a4b1e5e116eb4ab4cdd50dc13333bee0.stex" ]
 
 [params]
 
