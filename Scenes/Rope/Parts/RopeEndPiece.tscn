@@ -18,7 +18,7 @@ shape = SubResource( 1 )
 
 [node name="Joint" type="PinJoint2D" parent="Collision"]
 bias = 0.1
-softness = 0.05
+softness = 2.0
 
 [node name="joint2" type="PinJoint2D" parent="."]
 bias = 0.1

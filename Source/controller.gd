@@ -12,28 +12,28 @@ onready var climber2 = get_node(climber2_path)
 onready var rope = get_node(rope_path)
 
 func _ready():
-	pass
+	rope.call_deferred("spawn_rope",climber1.global_position, climber2.global_position )
+	rope.call_deferred("connect_to_objects",climber1, climber2)
 
 func _input(event):
 	
 	# test
 	if event.is_action_pressed("ui_end"):
-		rope.spawn_rope(climber1.global_position, climber2.global_position)
-		rope.connect_to_objects(climber1, climber2)
+		pass
 #		rope.change_elasticity(0.001)
 	
 	# grabbing
 	if event.is_action_pressed("ui_accept"):
-		if climber1.movement == climber1.FALLING:
+		if climber1.movement == climber1.FALLING or climber1.movement == climber1.WALKING:
 			climber1.try_set_grabbing()
 		elif climber1.movement == climber1.GRABBING:
-			climber1.set_falling()
+			climber1.release_grab()
 	
 	if event.is_action_pressed("p2_grab"):
-		if climber2.movement == climber2.FALLING:
+		if climber2.movement == climber2.FALLING or climber2.movement == climber2.WALKING:
 			climber2.try_set_grabbing()
 		elif climber2.movement == climber2.GRABBING:
-			climber2.set_falling()
+			climber2.release_grab()
 	
 	# jump
 	if event.is_action_pressed("ui_jump"):

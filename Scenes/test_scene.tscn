@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Environment/grab_area.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/controller.tscn" type="PackedScene" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://Scenes/Environment/walk_surface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Rope/Parts/Rope.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-
 [node name="Node2D" type="Node2D"]
+position = Vector2( 1.33484, 0.667419 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
 climber1_path = NodePath("../Climber1")
@@ -16,23 +15,87 @@ climber2_path = NodePath("../Climber2")
 rope_path = NodePath("../Rope")
 
 [node name="Climber1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 258.331, 55.4366 )
-collision_layer = 1024
+position = Vector2( 328.471, 197.516 )
+collision_layer = 2
+collision_mask = 1
+mass = 0.5
+gravity_scale = 2.0
+other_climber_path = NodePath("../Climber2")
 
 [node name="Climber2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 383.741, 59.0733 )
-collision_layer = 2048
-
-[node name="ClimbArea" parent="." instance=ExtResource( 1 )]
-position = Vector2( 674.736, 210.843 )
+position = Vector2( 428.471, 196.949 )
+collision_layer = 4
+collision_mask = 1
+mass = 0.5
+gravity_scale = 2.0
+other_climber_path = NodePath("../Climber1")
 
 [node name="WalkSurface" parent="." instance=ExtResource( 4 )]
-position = Vector2( 331.894, 100.753 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 237.495, 16.379 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-shape = SubResource( 1 )
+position = Vector2( 373.844, 249.854 )
 
 [node name="Rope" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0.305237, -1.04785 )
+
+[node name="ClimbArea2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 484.008, 375.612 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 476.448, 221.902 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 665.437, 224.422 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 664.177, 373.092 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672.996, 79.5307 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 466.369, 79.5307 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 486.528, 523.023 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 670.476, 523.023 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 127.344, 1021.28 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 119.785, 867.566 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 308.773, 870.086 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 307.513, 1018.76 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 316.332, 725.195 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 109.705, 725.195 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 129.864, 1168.69 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="ClimbArea17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 313.812, 1168.69 )
+scale = Vector2( 0.25, 0.25 )

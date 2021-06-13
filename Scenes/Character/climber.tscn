@@ -9,20 +9,21 @@
 [node name="Climber" type="RigidBody2D" groups=[
 "Climber",
 ]]
+collision_layer = 0
+collision_mask = 0
 mode = 2
-mass = 20.0
 contacts_reported = 1
 contact_monitor = true
 linear_damp = 10.0
 script = ExtResource( 1 )
-walk_impuse = 100000.0
+walk_impuse = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="KinematicAnchor" type="KinematicBody2D" parent="."]
+position = Vector2( 0.667419, -1.33484 )
 collision_layer = 0
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicAnchor"]
 shape = SubResource( 2 )

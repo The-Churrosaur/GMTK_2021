@@ -9,6 +9,7 @@ height = 6.0
 [node name="RopePiece" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 0
+mass = 0.1
 gravity_scale = 5.0
 linear_damp = 1.0
 angular_damp = 5.0
@@ -20,4 +21,5 @@ shape = SubResource( 1 )
 
 [node name="Joint" type="PinJoint2D" parent="Collision"]
 position = Vector2( 0, 5 )
-softness = 0.01
+bias = 0.9
+softness = 16.0
