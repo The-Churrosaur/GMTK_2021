@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Source/scroller.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Environment/grab_area.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Environment/endgame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/snowflake.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Environment/walk_surface.tscn" type="PackedScene" id=10]
-[ext_resource path="res://icon.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFontData" id=2]
 font_path = "res://Assets/Candara.ttf"
@@ -104,10 +103,6 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea"]
 shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="FloorArea"]
-scale = Vector2( 20, 1 )
-texture = ExtResource( 11 )
 
 [node name="Blizzard" type="Particles2D" parent="FloorArea"]
 amount = 4000
